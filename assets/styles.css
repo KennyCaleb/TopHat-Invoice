@@ -1,0 +1,474 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.parent {
+    width: 99vw;
+    background: rgb(242, 243, 245);
+    display: none;
+}
+
+/* CSS for preloader */
+.preloader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    margin: -76px 0 0 -76px;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid rgba(0, 0, 0, 0.7);
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+/* CSS for preloader Ends Styling here*/
+
+/* -----------------navbar--------------------- */
+nav {
+    width: 100%;
+    height: 60px;
+    background: rgb(255, 255, 255);
+    /* border: 2px solid gray; */
+
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+/* ----------------container------------ */
+.container {
+    width: 750px;
+    height: 90%;
+    /* border: 2px solid gray; */
+    background: rgb(255, 255, 255);
+    margin: auto;
+}
+
+@media (max-width:800px) {
+    .container {
+        width: 100%;
+    }
+}
+
+/* options bar */
+.options-bar {
+    width: 100%;
+    padding: 50px 0 20px;
+    background: rgb(242, 243, 245);
+    text-align: bottom;
+
+    position: sticky;
+    top: 60px;
+    z-index: 1;
+}
+
+.options-bar button {
+    font-size: 1rem;
+    padding: .5em 2em;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    margin-right: .5em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.options-bar button:last-child {
+    margin-right: 0;
+    color: white;
+    background: rgb(244, 110, 62);
+}
+
+@media (min-width:538px) {
+    .options-bar button:last-child {
+        float: right;
+    }
+}
+
+/* form */
+.invoice-form {
+    width: 100%;
+    /* border: 2px solid magenta; */
+    padding: 4em 1em;
+}
+
+/* billings, company and clients sections */
+.details-1,
+.details-2 {
+    width: 100%;
+    height: 162px;
+    margin-bottom: 2em;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.company-details,
+.client-details,
+.invoice-details {
+    width: 48%;
+    height: 100%;
+}
+
+.company-details input,
+.client-details input {
+    width: 100%;
+    height: calc(162px/5.2);
+    border: none;
+    padding: 0 1em;
+}
+
+.client-details input:first-child,
+.client-details input:first-child::placeholder {
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(102, 102, 102) !important;
+}
+
+.invoice-text {
+    width: 48%;
+    height: 76px;
+}
+
+.invoice-text input {
+    font-size: 3em;
+    color: rgba(0, 0, 0, 0.75);
+    height: 100%;
+    width: 100%;
+    border: none;
+
+    text-align: end;
+    padding-right: .5em;
+}
+
+.invoice-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: .5em;
+}
+
+.invoice-details>div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.invoice-details>div>input {
+    width: 48%;
+    height: calc(162px/5.2);
+    border: none;
+}
+
+.invoice-details>div>input:first-child {
+    font-weight: bold;
+    color: rgb(102, 102, 102);
+}
+
+
+/* invoice table */
+.invoice-table {
+    width: 100%;
+    margin: 3em 0 .5em;
+}
+
+.invoice-table thead {
+    background: rgb(102, 102, 102);
+}
+
+.invoice-table input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 0 1em;
+
+}
+
+.invoice-table thead input {
+    font-weight: bold;
+    height: 35px;
+    color: white;
+}
+
+.invoice-table tbody input {
+    height: 60px;
+}
+
+tbody td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+tbody td:first-child {
+    width: 50%;
+}
+
+@media (max-width:800px) {
+    tbody td:first-child {
+        width: 35%;
+    }
+}
+
+input:hover,
+textarea:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+tbody tr {
+    position: relative;
+    transition: .5s;
+}
+
+tbody tr:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+#del-row-btn {
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    text-align: center;
+    line-height: 14px;
+    cursor: pointer;
+}
+
+.del-row-btn-parent {
+    background: none !important;
+    display: none;
+
+    position: absolute;
+    right: 20px;
+    top: 30%;
+}
+
+tbody tr:hover .del-row-btn-parent {
+    display: block;
+}
+
+.buttons-and-totals {
+    width: 100%;
+    margin: 0 0 2em;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+@media (max-width:700px) {
+    .buttons-and-totals {
+        row-gap: 1em;
+
+        flex-direction: column;
+    }
+}
+
+.buttons-and-totals button {
+    padding: .5em 1em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.buttons-and-totals button:first-child span {
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    color: white;
+    background: rgb(31, 192, 41);
+    line-height: 22px;
+    border-radius: 50%;
+}
+
+.buttons-and-totals button:nth-child(2) {
+    background: rgb(244, 110, 62);
+    border-radius: 5px;
+    color: white;
+}
+
+
+.totals {
+    width: 33.333%;
+}
+
+.totals>div {
+    width: 100%;
+}
+
+.totals>div>input {
+    width: 50%;
+    height: calc(162px/4);
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.totals>div:first-child {
+    font-size: 1em;
+}
+
+@media (max-width:700px) {
+    .totals {
+        width: 50%;
+        position: absolute;
+        right: 1.2em;
+    }
+}
+
+.totals>div>:nth-child(2) {
+    cursor: not-allowed;
+}
+
+
+
+/* additional invoice notes */
+.notes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    row-gap: 2em;
+    margin-bottom: 4em;
+}
+
+.notes>div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    row-gap: .5em;
+}
+
+.notes input {
+    font-size: 1rem;
+    color: rgb(102, 102, 102);
+    font-weight: bold;
+    border: none;
+}
+
+.notes textarea {
+    font-size: 1rem;
+    width: 100%;
+    height: 40px;
+    border: none;
+
+}
+
+/* powered by */
+.powered-by-texts-and-logo {
+    text-align: right;
+}
+
+
+/* footer */
+footer {
+    font-size: 0.78em;
+    height: 60px;
+    /* border-top: 1px solid gray; */
+    margin-top: 5em;
+}
+
+.common-footer {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.common-footer>ul {
+    list-style: none;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.common-footer li {
+    border-right: 1px solid gray;
+    padding: 0em 0.8em;
+}
+
+.common-footer ul li a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.4);
+}
