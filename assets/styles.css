@@ -11,11 +11,53 @@ body {
 .parent {
     width: 99vw;
     background: rgb(242, 243, 245);
-    display: none;
+    /* display: none; */
 }
 
 /* CSS for preloader */
-.preloader {
+
+.preloader-parent{
+    width: 100vw;
+    height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   row-gap: .5em;
+}
+
+
+.preloader-parent>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader-pen{
+    margin-top: -18px;
+    margin-left: -5px;
+    
+}
+
+.preloader{
+    background-color:rgb(244, 110, 62);
+    width: 0;
+    height: 2px;
+    animation-name: movepen;
+    animation-duration: 3s;
+}
+
+@keyframes movepen{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 200px;
+    }
+}
+
+
+/* .preloader {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -48,10 +90,10 @@ body {
     100% {
         transform: rotate(360deg);
     }
-}
+} */
 
 /* Add animation to "page content" */
-.animate-bottom {
+/* .animate-bottom {
     position: relative;
     -webkit-animation-name: animatebottom;
     -webkit-animation-duration: 1s;
@@ -81,7 +123,7 @@ body {
         bottom: 0;
         opacity: 1
     }
-}
+} */
 
 /* CSS for preloader Ends Styling here*/
 

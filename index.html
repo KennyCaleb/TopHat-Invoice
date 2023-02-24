@@ -1,247 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INVOICE GENERATOR</title>
 
-    <!-- custom CSS -->
-    <link rel="stylesheet" href="./assets/styles.css" />
-  </head>
-  <body onload="myFunction()">
-    <div class="preloader"></div>
-    <section class="parent">
-      <nav></nav>
-      <div class="container">
-        <div class="options-bar">
-          <button>Send</button>
-          <button>Download</button>
-          <button>Print</button>
-          <button>Save Online</button>
-        </div>
-        <form
-          action=""
-          id="invoice-form"
-          class="invoice-form"
-          itemid="invoice-form"
-        >
-          <div class="details-1">
-            <div class="company-details">
-              <input
-                type="text"
-                placeholder="Your Company"
-                id="owner-company-name"
-              />
-              <input
-                type="text"
-                placeholder="Your Name"
-                id="owner-name"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Company's Address"
-                id="owner-company-address"
-                required
-              />
-              <input
-                type="text"
-                placeholder="City, State Zip"
-                id="owner-company-state"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Country"
-                id="owner-company-country"
-              />
-            </div>
-            <div class="invoice-text">
-              <input type="text" value="INVOICE" id="invoice-header-text" />
-            </div>
-          </div>
-          <div class="details-2">
-            <div class="client-details">
-              <input type="text" value="Bill To :" id="bill-to-heading" />
-              <input
-                type="text"
-                placeholder="Your Client's Company"
-                id="client-company-name"
-              />
-              <input
-                type="text"
-                placeholder="Client's Address"
-                id="client-address"
-                required
-              />
-              <input
-                type="text"
-                placeholder="City, State Zip"
-                id="client-state"
-                required
-              />
-              <input type="text" placeholder="Country" id="client-country" />
-            </div>
-            <div class="invoice-details">
-              <div>
-                <input type="text" value="Invoice#" id="invoice-number-label" />
-                <input type="text" placeholder="INV-001" id="invoice-number" />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  value="Invoice Date"
-                  id="invoice-date-label"
-                />
-                <input
-                  type="date"
-                  placeholder="Jan 9, 2023"
-                  id="invoice-date"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  value="Due Date"
-                  id="invoice-due-date-label"
-                />
-                <input
-                  type="date"
-                  placeholder="Jan 9, 2023"
-                  id="invoice-due-date"
-                />
-              </div>
-            </div>
-          </div>
-          <!-- table -->
-          <table class="invoice-table" id="invoice-table">
-            <thead>
-              <tr>
-                <th>
-                  <input
-                    type="text"
-                    value="Item Description"
-                    id="table-head-item-desc-label"
-                  />
-                </th>
-                <th>
-                  <input type="text" value="Qty" id="table-head-qty-label" />
-                </th>
-                <th>
-                  <input type="text" value="Rate" id="table-head-rate-label" />
-                </th>
-                <th>
-                  <input
-                    type="text"
-                    value="Amount"
-                    id="table-head-amount-label"
-                  />
-                </th>
-              </tr>
-            </thead>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INVOICE GENERATOR</title>
 
-            <!-- table body -->
-            <tbody id="invoice-table-body"></tbody>
-          </table>
-          <div class="buttons-and-totals">
-            <button type="button" id="add-new-line-item-btn">
-              <span>+</span> Add Line Item
-            </button>
-            <button type="submit">Preview Invoice</button>
-            <div class="totals">
-              <div>
-                <input type="text" value="Sub Total" id="subTotalLabel" /><input
-                  type="text"
-                  id="subTotal"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  min="1"
-                  value="Sales tax(%)"
-                  id="salesTaxLabel"
-                /><input type="text" id="salesTax" style="cursor: text" />
-              </div>
-              <div>
-                <input type="text" value="Total" id="totalLabel" /><input
-                  type="text"
-                  id="total"
-                  disabled
-                />
-              </div>
-            </div>
-          </div>
-          <div class="notes">
-            <div>
-              <input type="text" value="Notes :" id="note-label" /><textarea
-                name=""
-                id="note"
-              >
-It was great doing business with you.</textarea
-              >
-            </div>
-            <div>
-              <input
-                type="text"
-                value="Terms and Condition :"
-                id="terms-and-condition-label"
-              /><textarea name="" id="terms-and-condition">
-Please make the payment by the due date.</textarea
-              >
-            </div>
-          </div>
-          <div class="powered-by-texts-and-logo">
-            <p>
-              <span style="color: rgb(17, 180, 215)">Powered by </span> eCaleb
-              Invoice
-            </p>
-            <br />
-            <p>100% Free Invoicing Solution</p>
-          </div>
-        </form>
+  <!-- custom CSS -->
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <!-- cdnjs -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<body onload="myFunction()">
+  <!-- <div class="preloader"></div> -->
+  <div class="preloader-parent">
+    <h4 style="font-size: 1em;">TopHat Invoice <i class="fa-sharp fa-solid fa-hat-cowboy" style="font-size: 2em;"></i>
+    </h4>
+    <div>
+      <div class="preloader"></div>
+      <div class="preloader-pen"><i class="fa-solid fa-pencil"></i></div>
+    </div>
+  </div>
+  <section class="parent">
+    <nav></nav>
+    <div class="container">
+      <div class="options-bar">
+        <button>Send</button>
+        <button>Download</button>
+        <button>Print</button>
+        <button>Save Online</button>
       </div>
-      <footer>
-        <div class="common-footer">
-          <ul>
-            <li><a href="">ecaleb Home</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Security</a></li>
-            <li><a href="">IPR Complaints</a></li>
-            <li><a href=""> Anti-spam Policy</a></li>
-            <li id="footer-terms">
-              <a href="">Terms of Service</a>
-            </li>
-            <li><a href=""> Privacy Policy</a></li>
-            <li>
-              <a href="">Cookie Policy</a>
-            </li>
-            <li><a href="">GDPR Compliance</a></li>
-            <li>
-              <a href="">Abuse Policy</a>
-            </li>
-          </ul>
-          <p>© 2023, eCaleb Corporation Pvt. Ltd. All Rights Reserved.</p>
+      <form action="" id="invoice-form" class="invoice-form" itemid="invoice-form">
+        <div class="details-1">
+          <div class="company-details">
+            <input type="text" placeholder="Your Company" id="owner-company-name" />
+            <input type="text" placeholder="Your Name" id="owner-name" required />
+            <input type="text" placeholder="Company's Address" id="owner-company-address" required />
+            <input type="text" placeholder="City, State Zip" id="owner-company-state" required />
+            <input type="text" placeholder="Country" id="owner-company-country" />
+          </div>
+          <div class="invoice-text">
+            <input type="text" value="INVOICE" id="invoice-header-text" />
+          </div>
         </div>
-      </footer>
-    </section>
+        <div class="details-2">
+          <div class="client-details">
+            <input type="text" value="Bill To :" id="bill-to-heading" />
+            <input type="text" placeholder="Your Client's Company" id="client-company-name" />
+            <input type="text" placeholder="Client's Address" id="client-address" required />
+            <input type="text" placeholder="City, State Zip" id="client-state" required />
+            <input type="text" placeholder="Country" id="client-country" />
+          </div>
+          <div class="invoice-details">
+            <div>
+              <input type="text" value="Invoice#" id="invoice-number-label" />
+              <input type="text" placeholder="INV-001" id="invoice-number" />
+            </div>
+            <div>
+              <input type="text" value="Invoice Date" id="invoice-date-label" />
+              <input type="date" placeholder="Jan 9, 2023" id="invoice-date" />
+            </div>
+            <div>
+              <input type="text" value="Due Date" id="invoice-due-date-label" />
+              <input type="date" placeholder="Jan 9, 2023" id="invoice-due-date" />
+            </div>
+          </div>
+        </div>
+        <!-- table -->
+        <table class="invoice-table" id="invoice-table">
+          <thead>
+            <tr>
+              <th>
+                <input type="text" value="Item Description" id="table-head-item-desc-label" />
+              </th>
+              <th>
+                <input type="text" value="Qty" id="table-head-qty-label" />
+              </th>
+              <th>
+                <input type="text" value="Rate" id="table-head-rate-label" />
+              </th>
+              <th>
+                <input type="text" value="Amount" id="table-head-amount-label" />
+              </th>
+            </tr>
+          </thead>
 
-    <!-- external Js -->
-    <script src="./assets/main.js"></script>
+          <!-- table body -->
+          <tbody id="invoice-table-body"></tbody>
+        </table>
+        <div class="buttons-and-totals">
+          <button type="button" id="add-new-line-item-btn">
+            <span>+</span> Add Line Item
+          </button>
+          <button type="submit">Preview Invoice</button>
+          <div class="totals">
+            <div>
+              <input type="text" value="Sub Total" id="subTotalLabel" /><input type="text" id="subTotal" />
+            </div>
+            <div>
+              <input type="text" min="1" value="Sales tax(%)" id="salesTaxLabel" /><input type="text" id="salesTax"
+                style="cursor: text" />
+            </div>
+            <div>
+              <input type="text" value="Total" id="totalLabel" /><input type="text" id="total" disabled />
+            </div>
+          </div>
+        </div>
+        <div class="notes">
+          <div>
+            <input type="text" value="Notes :" id="note-label" /><textarea name="" id="note">
+It was great doing business with you.</textarea>
+          </div>
+          <div>
+            <input type="text" value="Terms and Condition :" id="terms-and-condition-label" /><textarea name=""
+              id="terms-and-condition">
+Please make the payment by the due date.</textarea>
+          </div>
+        </div>
+        <div class="powered-by-texts-and-logo">
+          <p>
+            <span style="color: rgb(17, 180, 215)">Powered by </span> eCaleb
+            Invoice
+          </p>
+          <br />
+          <p>100% Free Invoicing Solution</p>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <div class="common-footer">
+        <ul>
+          <li><a href="">ecaleb Home</a></li>
+          <li><a href="">Contact</a></li>
+          <li><a href="">Security</a></li>
+          <li><a href="">IPR Complaints</a></li>
+          <li><a href=""> Anti-spam Policy</a></li>
+          <li id="footer-terms">
+            <a href="">Terms of Service</a>
+          </li>
+          <li><a href=""> Privacy Policy</a></li>
+          <li>
+            <a href="">Cookie Policy</a>
+          </li>
+          <li><a href="">GDPR Compliance</a></li>
+          <li>
+            <a href="">Abuse Policy</a>
+          </li>
+        </ul>
+        <p>© 2023, eCaleb Corporation Pvt. Ltd. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </section>
 
-    <!-- custom internal Js for preloader -->
-    <script>
-      var myVar;
+  <!-- external Js -->
+  <script src="./assets/main.js"></script>
 
-      function myFunction() {
-        myVar = setTimeout(showPage, 3000);
-      }
+  <!-- custom internal Js for preloader -->
+  <script>
+    // var myVar;
 
-      function showPage() {
-        document.querySelector(".preloader").style.display = "none";
-        document.querySelector(".parent").style.display = "block";
-      }
-    </script>
-  </body>
+    function myFunction() {
+      document.querySelector(".parent").style.display = "none"
+      setTimeout(showPage, 3000);
+    }
+
+    function showPage() {
+      document.querySelector(".preloader-parent").style.display = "none";
+      document.querySelector(".parent").style.display = "block";
+    }
+  </script>
+</body>
+
 </html>
