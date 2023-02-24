@@ -1,122 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Invoice Preview</title>
 
-    <!-- custom CSS -->
-    <link rel="stylesheet" href="./assets/invoicePreview.css" />
-  </head>
-  <body onload="myFunction()">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice Preview</title>
+
+  <!-- custom CSS -->
+  <link rel="stylesheet" href="./assets/invoicePreview.css" />
+</head>
+
+<body onload="myFunction()">
+  <div class="preloader-parent">
+    <h4 style="font-style: italic; margin-left: -170px;">Just some sec, generating invoice ...</h4>
     <div class="preloader"></div>
-    <section class="parent">
-      <div class="container">
-        <!-- company-details -->
-        <div class="top-details">
-          <div class="company-details">
-            <h3 id="company-name"></h3>
-            <p id="merchant-name"></p>
-            <p id="company-address"></p>
-            <p id="company-state"></p>
-            <p id="company-country"></p>
-          </div>
-          <div class="invoice-text-container">
-            <p id="invoice-text"></p>
-          </div>
+  </div>
+  <section class="parent">
+    <div class="container">
+      <!-- company-details -->
+      <div class="top-details">
+        <div class="company-details">
+          <h3 id="company-name"></h3>
+          <p id="merchant-name"></p>
+          <p id="company-address"></p>
+          <p id="company-state"></p>
+          <p id="company-country"></p>
         </div>
-
-        <!-- client and invoicing details -->
-        <div class="bottom-details">
-          <div class="client-details">
-            <h4 id="billing-header-label"></h4>
-            <p id="client-company"></p>
-            <p id="client-address"></p>
-            <p id="client-state"></p>
-            <p id="client-country"></p>
-          </div>
-          <div class="invoicing-details">
-            <div class="invoiceID-wrapper">
-              <h4 id="invoice-ID-label"></h4>
-              <p id="invoice-ID-value"></p>
-            </div>
-            <div class="invoice-date-wrapper">
-              <h4 id="invoice-date-label"></h4>
-              <p id="invoice-date-value"></p>
-            </div>
-            <div class="invoice-due-date-wrapper">
-              <h4 id="invoice-due-date-label"></h4>
-              <p id="invoice-due-date-value"></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- table -->
-        <table id="invoice-table">
-          <thead id="invoice-table-head"></thead>
-
-          <tbody id="invoice-table-body"></tbody>
-        </table>
-
-        <!-- totals -->
-
-        <div class="totals-wrapper">
-          <div class="totals">
-            <div class="sub-total">
-              <h4 id="subtotal-header"></h4>
-              <p id="subtotal-value"></p>
-            </div>
-            <div class="sales-tax">
-              <h4 id="salestax-header"></h4>
-              <p id="salestax-value"></p>
-            </div>
-            <div class="total">
-              <h4 id="total-header"></h4>
-              <p id="total-value"></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- notes T&C -->
-        <div class="notes-tc">
-          <div class="note">
-            <h4 id="note-header"></h4>
-            <p id="note-body"></p>
-          </div>
-          <div class="tc">
-            <h4 id="tc-header"></h4>
-            <p id="tc-body"></p>
-          </div>
-        </div>
-
-        <!-- powered-by-texts-and-logo -->
-        <div class="powered-by-texts-and-logo">
-          <p>
-            <span style="color: rgb(17, 180, 215)">Powered by </span> eCaleb
-            Invoice
-          </p>
-          <br />
-          <p>100% Free Invoicing Solution</p>
+        <div class="invoice-text-container">
+          <p id="invoice-text"></p>
         </div>
       </div>
-    </section>
 
-    <!-- custom js -->
-    <script src="./assets/invoicePreview.js"></script>
+      <!-- client and invoicing details -->
+      <div class="bottom-details">
+        <div class="client-details">
+          <h4 id="billing-header-label"></h4>
+          <p id="client-company"></p>
+          <p id="client-address"></p>
+          <p id="client-state"></p>
+          <p id="client-country"></p>
+        </div>
+        <div class="invoicing-details">
+          <div class="invoiceID-wrapper">
+            <h4 id="invoice-ID-label"></h4>
+            <p id="invoice-ID-value"></p>
+          </div>
+          <div class="invoice-date-wrapper">
+            <h4 id="invoice-date-label"></h4>
+            <p id="invoice-date-value"></p>
+          </div>
+          <div class="invoice-due-date-wrapper">
+            <h4 id="invoice-due-date-label"></h4>
+            <p id="invoice-due-date-value"></p>
+          </div>
+        </div>
+      </div>
 
-    <!-- custom internal Js for preloader -->
-    <script>
-      var myVar;
+      <!-- table -->
+      <table id="invoice-table">
+        <thead id="invoice-table-head"></thead>
 
-      function myFunction() {
-        myVar = setTimeout(showPage, 1500);
-      }
+        <tbody id="invoice-table-body"></tbody>
+      </table>
 
-      function showPage() {
-        document.querySelector(".preloader").style.display = "none";
-        document.querySelector(".parent").style.display = "block";
-      }
-    </script>
-  </body>
+      <!-- totals -->
+
+      <div class="totals-wrapper">
+        <div class="totals">
+          <div class="sub-total">
+            <h4 id="subtotal-header"></h4>
+            <p id="subtotal-value"></p>
+          </div>
+          <div class="sales-tax">
+            <h4 id="salestax-header"></h4>
+            <p id="salestax-value"></p>
+          </div>
+          <div class="total">
+            <h4 id="total-header"></h4>
+            <p id="total-value"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- notes T&C -->
+      <div class="notes-tc">
+        <div class="note">
+          <h4 id="note-header"></h4>
+          <p id="note-body"></p>
+        </div>
+        <div class="tc">
+          <h4 id="tc-header"></h4>
+          <p id="tc-body"></p>
+        </div>
+      </div>
+
+      <!-- powered-by-texts-and-logo -->
+      <div class="powered-by-texts-and-logo">
+        <p>
+          <span style="color: rgb(17, 180, 215)">Powered by </span> eCaleb
+          Invoice
+        </p>
+        <br />
+        <p>100% Free Invoicing Solution</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- custom js -->
+  <script src="./assets/invoicePreview.js"></script>
+
+  <!-- custom internal Js for preloader -->
+  <script>
+    var myVar;
+
+    function myFunction() {
+      myVar = setTimeout(showPage, 1500);
+    }
+
+    function showPage() {
+      document.querySelector(".preloader-parent").style.display = "none";
+      document.querySelector(".parent").style.display = "block";
+    }
+  </script>
+</body>
+
 </html>

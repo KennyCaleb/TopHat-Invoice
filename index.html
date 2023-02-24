@@ -24,13 +24,15 @@
     </div>
   </div>
   <section class="parent">
-    <nav></nav>
+    <nav>
+      <h4>TopHat Invoice</h4><i class="fa-sharp fa-solid fa-hat-cowboy" style="font-size: 2em;"></i>
+    </nav>
     <div class="container">
       <div class="options-bar">
-        <button>Send</button>
+        <!-- <button>Send</button>
         <button>Download</button>
         <button>Print</button>
-        <button>Save Online</button>
+        <button>Save Online</button> -->
       </div>
       <form action="" id="invoice-form" class="invoice-form" itemid="invoice-form">
         <div class="details-1">
@@ -88,7 +90,17 @@
           </thead>
 
           <!-- table body -->
-          <tbody id="invoice-table-body"></tbody>
+          <tbody id="invoice-table-body">
+            <td><input type="text" placeholder="Pencils Pack" /></td>
+            <td><input type="number" class="qty" placeholder="2" /></td>
+            <td><input type="number" class="rate" placeholder="1200" /></td>
+            <td>
+              <input type="text" class="tableBodyAmountValue" style="cursor: not-allowed" placeholder="2400" disabled />
+            </td>
+            <td width="20" class="del-row-btn-parent">
+              <button id="del-row-btn">x</button>
+            </td>
+          </tbody>
         </table>
         <div class="buttons-and-totals">
           <button type="button" id="add-new-line-item-btn">
@@ -163,7 +175,7 @@ Please make the payment by the due date.</textarea>
 
     function myFunction() {
       document.querySelector(".parent").style.display = "none"
-      setTimeout(showPage, 3000);
+      setTimeout(showPage, 500);
     }
 
     function showPage() {
